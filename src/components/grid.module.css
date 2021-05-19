@@ -1,0 +1,8 @@
+.row {
+  display: flex;
+  border-bottom: 1px solid black;
+  max-width: 300px;
+}
+.row:last-child {
+  border-bottom: none;
+}
