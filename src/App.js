@@ -17,6 +17,7 @@ export default function App() {
         <button onClick={reset}>Reset</button>
       </div>
       <Grid handleClick={handleClick} />
+      <div className="footer">By <a href="https://dsouzaalf.red/" target="_blank" rel="noopener noreferrer">Alfred DSouza</a></div>
     </div>
   );
 }
