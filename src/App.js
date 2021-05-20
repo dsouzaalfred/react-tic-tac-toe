@@ -16,20 +16,33 @@ export default function App() {
     c8: null,
     c9: null
   };
+  const possibleWinners = [
+    ["c1", "c2", "c3"],
+    ["c4", "c5", "c6"],
+    ["c7", "c8", "c9"],
+    ["c1", "c4", "c7"],
+    ["c2", "c5", "c8"],
+    ["c3", "c6", "c9"],
+    ["c1", "c5", "c9"],
+    ["c3", "c5", "c7"]
+  ];
   const [state, setState] = useState(initalSate);
   const [nowPlaying, setNowPlaying] = useState("X");
   const [isWon, setIsWon] = useState(false);
+  const [count, setCount] = useState(0);
+  const [isDraw, setIsDraw] = useState(false);
 
   const reset = () => {
-    ["#c1", "#c2", "#c3", "#c4", "#c5", "#c6", "#c7", "#c8", "#c9"].forEach(
-      (item) => {
-        document.querySelector(item).innerHTML = "";
-      }
-    );
+    Object.keys(initalSate).forEach((item) => {
+      document.querySelector(`#${item}`).innerHTML = "";
+      document.querySelector(`#${item}`).classList.remove("winner");
+    });
 
     setState(initalSate);
     setNowPlaying("X");
     setIsWon(false);
+    setIsDraw(false);
+    setCount(0);
   };
 
   const updateNowPlaying = () => {
@@ -40,51 +53,58 @@ export default function App() {
     }
   };
 
-  const checkThree = (ch1, ch2, ch3) => {
+  const checkRow = (ch1, ch2, ch3) => {
     if (state[ch1] && state[ch1] === state[ch2] && state[ch1] === state[ch3]) {
       return true;
     }
-
     return false;
   };
 
   const checkResult = () => {
-    return (
-      checkThree("c1", "c2", "c3") ||
-      checkThree("c4", "c5", "c6") ||
-      checkThree("c7", "c8", "c9") ||
-      checkThree("c1", "c4", "c7") ||
-      checkThree("c2", "c5", "c8") ||
-      checkThree("c3", "c6", "c9") ||
-      checkThree("c1", "c5", "c9") ||
-      checkThree("c3", "c5", "c7")
-    );
+    let winner = [];
+    possibleWinners.every((item) => {
+      const isWinner = checkRow(...item);
+      if (isWinner) {
+        winner = [...item];
+        return false;
+      }
+      return true;
+    });
+    return winner;
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (!isWon) {
+    if (!isWon && !isDraw) {
       const tempState = JSON.parse(JSON.stringify(state));
       tempState[e.target.id] = nowPlaying;
       e.target.innerHTML = nowPlaying;
       setState(tempState);
       updateNowPlaying();
+      setCount(count + 1);
     }
   };
 
   useEffect(() => {
     const didWin = checkResult();
-    if (didWin) {
+    if (didWin.length > 0) {
       setIsWon(true);
       updateNowPlaying();
+      didWin.forEach((item) => {
+        document.querySelector(`#${item}`).classList.add("winner");
+      });
+    }
+    if (count >= 9 && didWin.length <= 0) {
+      setIsDraw(true);
     }
   }, [state]);
 
   return (
     <div className="App">
       <div className="header">
-        {!isWon && <p>Now playing: {nowPlaying}</p>}
+        {!isWon && !isDraw && <p>Now playing: {nowPlaying}</p>}
         {isWon && <p>Winner: {nowPlaying}</p>}
+        {isDraw && <p>It's a draw</p>}
         <button onClick={reset}>Reset</button>
       </div>
       <Grid handleClick={handleClick} />
