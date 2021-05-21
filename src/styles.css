@@ -23,7 +23,7 @@ button {
   border: 1px solid aquamarine;
 }
 
-.winner {
+.winner, .winner:hover {
   background-color: #ccffc9;
   color: palevioletred;
 }
