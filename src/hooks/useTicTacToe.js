@@ -72,7 +72,7 @@ export const useTicTacToe = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (!isWon && !isDraw && state[e.target.id] !== undefined) {
+    if (!isWon && !isDraw && state[e.target.id] !== undefined && state[e.target.id] === null) {
       const tempState = JSON.parse(JSON.stringify(state));
       tempState[e.target.id] = nowPlaying;
       e.target.innerHTML = nowPlaying;
