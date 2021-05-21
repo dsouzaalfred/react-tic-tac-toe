@@ -1,7 +1,8 @@
 {
-  "name": "tic-tac-toe",
+  "name": "react-tic-tac-toe",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tic tac toe game, built in react",
+  "license": "MIT",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
