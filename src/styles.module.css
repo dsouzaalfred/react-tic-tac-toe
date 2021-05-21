@@ -11,6 +11,10 @@
   background-color: var(--app-background);
 }
 
+.title {
+  font-size: 2rem;
+  color: var(--color-black);
+}
 .wrapper {
   border: 1px dashed var(--color-black);
   padding: 10px;
