@@ -1,9 +1,11 @@
 {
   "name": "react-tic-tac-toe",
   "version": "1.0.0",
+  "private": true,
   "description": "Tic tac toe game, built in react",
   "license": "MIT",
   "keywords": [],
+  "author": "Alfred DSouza <dsouzaalfred@gmail.com> (https://dsouzaalf.red/)",
   "main": "src/index.js",
   "dependencies": {
     "classnames": "^2.3.1",
@@ -13,6 +15,7 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
+    "prettier": "2.3.0",
     "typescript": "4.1.3"
   },
   "scripts": {

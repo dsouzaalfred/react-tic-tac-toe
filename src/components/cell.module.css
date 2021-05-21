@@ -1,4 +1,4 @@
-@import '../vars.css';
+@import "../vars.css";
 
 .cell {
   height: 100px;
@@ -20,7 +20,8 @@
   background-color: var(--cell-hover);
 }
 
-.winner, .winner:hover {
+.winner,
+.winner:hover {
   background-color: var(--winner-cell-background);
   color: var(--winner-cell-font-colour);
 }

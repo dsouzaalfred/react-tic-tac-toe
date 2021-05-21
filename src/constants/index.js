@@ -7,7 +7,7 @@ export const initalSate = {
   c6: null,
   c7: null,
   c8: null,
-  c9: null
+  c9: null,
 };
 
 export const possibleWinners = [
@@ -18,5 +18,5 @@ export const possibleWinners = [
   ["c2", "c5", "c8"],
   ["c3", "c6", "c9"],
   ["c1", "c5", "c9"],
-  ["c3", "c5", "c7"]
+  ["c3", "c5", "c7"],
 ];

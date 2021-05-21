@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { initalSate, possibleWinners } from '../constants';
+import { initalSate, possibleWinners } from "../constants";
 
 export const useTicTacToe = () => {
   // state of the game
@@ -53,7 +53,9 @@ export const useTicTacToe = () => {
     // it's an array of arrays(winning combinations)
     possibleWinners.every((item) => {
       // return early if last position not in the current item
-      if(!item.includes(lastPositoin)) { return true; }
+      if (!item.includes(lastPositoin)) {
+        return true;
+      }
 
       // check current row
       const isWinner = checkRow(...item);
@@ -75,7 +77,12 @@ export const useTicTacToe = () => {
     // 2. Game is not already a draw
     // 3. target.id exists in our state (check if user has clicked on of the cells and not outside)
     // 4. selected cell is empty
-    if (!isWon && !isDraw && state[e.target.id] !== undefined && state[e.target.id] === null) {
+    if (
+      !isWon &&
+      !isDraw &&
+      state[e.target.id] !== undefined &&
+      state[e.target.id] === null
+    ) {
       // make a copy of the state
       const tempState = JSON.parse(JSON.stringify(state));
       // set cell position to symbol(x or o) in the state
@@ -108,4 +115,4 @@ export const useTicTacToe = () => {
   }, [state]);
 
   return { state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick };
-}
+};
