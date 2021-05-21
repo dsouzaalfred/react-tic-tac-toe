@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Cell correctly 1`] = `
+<div
+  className="app"
+>
+  <h1>
+    Tic-Tac-Toe
+  </h1>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="header"
+    >
+      <p>
+        Now playing: 
+        <span
+          className="note"
+        >
+          X
+        </span>
+      </p>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Reset
+      </button>
+    </div>
+    <div
+      onClick={[Function]}
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="cell"
+          id="c1"
+        >
+          
+        </div>
+        <div
+          className="cell"
+          id="c2"
+        >
+          
+        </div>
+        <div
+          className="cell"
+          id="c3"
+        >
+          
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell"
+          id="c4"
+        >
+          
+        </div>
+        <div
+          className="cell"
+          id="c5"
+        >
+          
+        </div>
+        <div
+          className="cell"
+          id="c6"
+        >
+          
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="cell"
+          id="c7"
+        >
+          
+        </div>
+        <div
+          className="cell"
+          id="c8"
+        >
+          
+        </div>
+        <div
+          className="cell"
+          id="c9"
+        >
+          
+        </div>
+      </div>
+    </div>
+    <div
+      className="footer"
+    >
+      By
+       
+      <a
+        className="link"
+        href="https://dsouzaalf.red/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Alfred DSouza
+      </a>
+    </div>
+  </div>
+</div>
+`;

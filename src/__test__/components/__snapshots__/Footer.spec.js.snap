@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Cell correctly 1`] = `
+<div
+  className="footer"
+>
+  By
+   
+  <a
+    className="link"
+    href="https://dsouzaalf.red/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Alfred DSouza
+  </a>
+</div>
+`;

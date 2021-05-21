@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Cell correctly 1`] = `
+<div
+  className="header"
+>
+  <p>
+    Now playing: 
+    <span
+      className="note"
+    />
+  </p>
+  <button
+    className="button"
+  >
+    Reset
+  </button>
+</div>
+`;

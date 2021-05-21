@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer';
 
-import { Cell } from '../../components/Cell';
+import { Header } from '../../components/Header';
 
 it('Renders Cell correctly', () => {
-  const tree = renderer.create(<Cell />).toJSON();
+  const tree = renderer.create(<Header />).toJSON();
   expect(tree).toMatchSnapshot();
 });
