@@ -6,13 +6,13 @@ import { Grid } from './components/Grid';
 
 import { useTicTacToe } from './hooks/useTicTacToe';
 
-import './styles.css';
+import styles from './styles.module.css';
 
 export default function App() {
   const { state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick } = useTicTacToe();
   return (
-    <div className="App">
-      <div className="wrapper">
+    <div className={styles.app}>
+      <div className={styles.wrapper}>
         <Header isWon={isWon} isDraw={isDraw} nowPlaying={nowPlaying} reset={reset} />
         <Grid handleClick={handleClick} gameState={state} winningCells={winningCells} isWon={isWon} />
         <Footer />

@@ -1,4 +1,6 @@
-.App {
+@import './vars.css';
+
+.app {
   font-family: sans-serif;
   text-align: center;
   display: flex;
@@ -6,5 +8,10 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: rgba(211, 232, 233, 0.44);
+  background-color: var(--app-background);
+}
+
+.wrapper {
+  border: 1px dashed var(--color-black);
+  padding: 10px;
 }
