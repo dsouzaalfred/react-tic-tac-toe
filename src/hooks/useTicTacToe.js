@@ -14,20 +14,18 @@ export const useTicTacToe = () => {
   const [isDraw, setIsDraw] = useState(false);
   // store the last position played
   const [lastPositoin, setLastPosition] = useState(null);
+  // store winning cells
+  const [winningCells, setWinningCells] = useState();
 
   // to reset the board when use clicks on reset
   const reset = () => {
-    // reset all the cells
-    Object.keys(initalSate).forEach((item) => {
-      document.querySelector(`#${item}`).innerHTML = "";
-      document.querySelector(`#${item}`).classList.remove("winner");
-    });
     // reset states
     setState(initalSate);
     setNowPlaying("X");
     setIsWon(false);
     setIsDraw(false);
     setCount(0);
+    setWinningCells([]);
   };
 
   // toggle players turn
@@ -82,8 +80,6 @@ export const useTicTacToe = () => {
       const tempState = JSON.parse(JSON.stringify(state));
       // set cell position to symbol(x or o) in the state
       tempState[e.target.id] = nowPlaying;
-      // set cell text to symbol(x or o)
-      e.target.innerHTML = nowPlaying;
       // update game state
       setState(tempState);
       // update who has the next turn
@@ -103,10 +99,7 @@ export const useTicTacToe = () => {
     if (didWin.length > 0) {
       setIsWon(true);
       updateNowPlaying();
-      // add class to the winning cells
-      didWin.forEach((item) => {
-        document.querySelector(`#${item}`).classList.add("winner");
-      });
+      setWinningCells(didWin);
     }
     // if not won check if it's a draw
     if (count >= 9 && didWin.length <= 0) {
@@ -114,5 +107,5 @@ export const useTicTacToe = () => {
     }
   }, [state]);
 
-  return {nowPlaying, isWon, isDraw, reset, handleClick};
+  return { state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick };
 }

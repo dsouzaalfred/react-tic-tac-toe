@@ -9,12 +9,12 @@ import { useTicTacToe } from './hooks/useTicTacToe';
 import './styles.css';
 
 export default function App() {
-  const {nowPlaying, isWon, isDraw, reset, handleClick} = useTicTacToe();
+  const { state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick } = useTicTacToe();
   return (
     <div className="App">
       <div className="wrapper">
         <Header isWon={isWon} isDraw={isDraw} nowPlaying={nowPlaying} reset={reset} />
-        <Grid handleClick={handleClick} />
+        <Grid handleClick={handleClick} gameState={state} winningCells={winningCells} isWon={isWon} />
         <Footer />
       </div>
     </div>

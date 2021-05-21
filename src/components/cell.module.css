@@ -16,3 +16,8 @@
 .cell:hover {
   background-color: #e5ecf4;
 }
+
+.winner, .winner:hover {
+  background-color: #ccffc9;
+  color: palevioletred;
+}
