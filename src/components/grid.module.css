@@ -1,7 +1,7 @@
 .row {
   display: flex;
   border-bottom: 1px solid black;
-  max-width: 300px;
+  max-width: 302px;
 }
 .row:last-child {
   border-bottom: none;
