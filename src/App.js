@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { Grid } from './components/Grid';
 
 import { useTicTacToe } from './hooks/useTicTacToe';
@@ -14,7 +15,7 @@ export default function App() {
       <div className="wrapper">
         <Header isWon={isWon} isDraw={isDraw} nowPlaying={nowPlaying} reset={reset} />
         <Grid handleClick={handleClick} />
-        <div className="footer">By <a href="https://dsouzaalf.red/" target="_blank" rel="noopener noreferrer">Alfred DSouza</a></div>
+        <Footer />
       </div>
     </div>
   );
