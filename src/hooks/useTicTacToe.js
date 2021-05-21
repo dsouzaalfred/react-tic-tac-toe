@@ -1,40 +1,28 @@
 import { useEffect, useState } from "react";
-
-const initalSate = {
-  c1: null,
-  c2: null,
-  c3: null,
-  c4: null,
-  c5: null,
-  c6: null,
-  c7: null,
-  c8: null,
-  c9: null
-};
-const possibleWinners = [
-  ["c1", "c2", "c3"],
-  ["c4", "c5", "c6"],
-  ["c7", "c8", "c9"],
-  ["c1", "c4", "c7"],
-  ["c2", "c5", "c8"],
-  ["c3", "c6", "c9"],
-  ["c1", "c5", "c9"],
-  ["c3", "c5", "c7"]
-];
+import { initalSate, possibleWinners } from '../constants';
 
 export const useTicTacToe = () => {
+  // state of the game
   const [state, setState] = useState(initalSate);
+  // track who plays the next move
   const [nowPlaying, setNowPlaying] = useState("X");
+  // track if the game isWon
   const [isWon, setIsWon] = useState(false);
+  // track the number of moves
   const [count, setCount] = useState(0);
+  // track if it's a draw
   const [isDraw, setIsDraw] = useState(false);
+  // store the last position played
+  const [lastPositoin, setLastPosition] = useState(null);
 
+  // to reset the board when use clicks on reset
   const reset = () => {
+    // reset all the cells
     Object.keys(initalSate).forEach((item) => {
       document.querySelector(`#${item}`).innerHTML = "";
       document.querySelector(`#${item}`).classList.remove("winner");
     });
-
+    // reset states
     setState(initalSate);
     setNowPlaying("X");
     setIsWon(false);
@@ -42,6 +30,7 @@ export const useTicTacToe = () => {
     setCount(0);
   };
 
+  // toggle players turn
   const updateNowPlaying = () => {
     if (nowPlaying === "X") {
       setNowPlaying("O");
@@ -50,6 +39,7 @@ export const useTicTacToe = () => {
     }
   };
 
+  // test if a row is completed & won
   const checkRow = (ch1, ch2, ch3) => {
     if (state[ch1] && state[ch1] === state[ch2] && state[ch1] === state[ch3]) {
       return true;
@@ -57,10 +47,19 @@ export const useTicTacToe = () => {
     return false;
   };
 
+  // function called after every move to check if the current player won
   const checkResult = () => {
     let winner = [];
+
+    // loop through the possible winning combinations to check if the current player won
+    // it's an array of arrays(winning combinations)
     possibleWinners.every((item) => {
+      // return early if last position not in the current item
+      if(!item.includes(lastPositoin)) { return true; }
+
+      // check current row
       const isWinner = checkRow(...item);
+      // if check return true, update winning cells and exit loop;
       if (isWinner) {
         winner = [...item];
         return false;
@@ -70,27 +69,46 @@ export const useTicTacToe = () => {
     return winner;
   };
 
+  // function to handle cell click
   const handleClick = (e) => {
     e.preventDefault();
+    // only procced if
+    // 1. Game is not already won
+    // 2. Game is not already a draw
+    // 3. target.id exists in our state (check if user has clicked on of the cells and not outside)
+    // 4. selected cell is empty
     if (!isWon && !isDraw && state[e.target.id] !== undefined && state[e.target.id] === null) {
+      // make a copy of the state
       const tempState = JSON.parse(JSON.stringify(state));
+      // set cell position to symbol(x or o) in the state
       tempState[e.target.id] = nowPlaying;
+      // set cell text to symbol(x or o)
       e.target.innerHTML = nowPlaying;
+      // update game state
       setState(tempState);
+      // update who has the next turn
       updateNowPlaying();
+      // update the number of moves completed
       setCount(count + 1);
+      // update last cell position
+      setLastPosition(e.target.id);
     }
   };
 
+  // effect called everytime state is updated
   useEffect(() => {
+    // check if game is won, if true returns an array of the winning cells else an empty array
     const didWin = checkResult();
+    // check if won
     if (didWin.length > 0) {
       setIsWon(true);
       updateNowPlaying();
+      // add class to the winning cells
       didWin.forEach((item) => {
         document.querySelector(`#${item}`).classList.add("winner");
       });
     }
+    // if not won check if it's a draw
     if (count >= 9 && didWin.length <= 0) {
       setIsDraw(true);
     }
