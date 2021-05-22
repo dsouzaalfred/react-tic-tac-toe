@@ -8,7 +8,7 @@ import {useTicTacToe} from './hooks/useTicTacToe';
 import styles from './styles.module.css';
 
 export default function App() {
-  const {state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick} =
+  const {state, nowPlaying, isWon, isDraw, reset, handleCellClick} =
     useTicTacToe();
   return (
     <div className={styles.app}>
@@ -21,9 +21,8 @@ export default function App() {
           reset={reset}
         />
         <Grid
-          handleClick={handleClick}
+          handleCellClick={handleCellClick}
           gameState={state}
-          winningCells={winningCells}
           isWon={isWon}
         />
         <Footer />

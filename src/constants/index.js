@@ -1,13 +1,13 @@
 export const initialSate = {
-  c1: null,
-  c2: null,
-  c3: null,
-  c4: null,
-  c5: null,
-  c6: null,
-  c7: null,
-  c8: null,
-  c9: null,
+  c1: {value: null, inWinningCombo: false},
+  c2: {value: null, inWinningCombo: false},
+  c3: {value: null, inWinningCombo: false},
+  c4: {value: null, inWinningCombo: false},
+  c5: {value: null, inWinningCombo: false},
+  c6: {value: null, inWinningCombo: false},
+  c7: {value: null, inWinningCombo: false},
+  c8: {value: null, inWinningCombo: false},
+  c9: {value: null, inWinningCombo: false},
 };
 
 export const possibleWinners = [
