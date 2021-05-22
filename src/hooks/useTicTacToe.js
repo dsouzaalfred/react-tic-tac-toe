@@ -28,7 +28,7 @@ export const useTicTacToe = () => {
   // toggle players turn
   const updateNowPlaying = () => {
     if (nowPlaying === 'X') {
-      setNowPlaying('O');
+      setNowPlaying('0');
     } else {
       setNowPlaying('X');
     }

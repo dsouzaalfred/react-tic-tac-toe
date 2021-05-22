@@ -23,5 +23,5 @@
 .winner,
 .winner:hover {
   background-color: var(--winner-cell-background);
-  color: var(--winner-cell-font-colour);
+  color: var(--link-colour);
 }

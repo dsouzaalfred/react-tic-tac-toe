@@ -2,9 +2,7 @@
   --color-black: #000000;
   --app-background: rgba(211, 232, 233, 0.44);
   --header-footer-background: #a4cdf0;
-  --note-colour: #ffeb3b;
   --winner-cell-background: #ccffc9;
-  --winner-cell-font-colour: #db7093;
   --cell-hover: #e5ecf4;
   --link-colour: #db7093;
 }
