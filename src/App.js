@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import React from 'react';
+import {Header} from './components/Header';
+import {Footer} from './components/Footer';
+import {Grid} from './components/Grid';
 
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { Grid } from "./components/Grid";
+import {useTicTacToe} from './hooks/useTicTacToe';
 
-import { useTicTacToe } from "./hooks/useTicTacToe";
-
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
 export default function App() {
-  const { state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick } =
+  const {state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick} =
     useTicTacToe();
   return (
     <div className={styles.app}>

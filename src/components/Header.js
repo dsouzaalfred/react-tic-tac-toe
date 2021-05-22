@@ -1,6 +1,10 @@
-import styles from "./header.module.css";
+import React from 'react';
 
-export const Header = ({ isWon, isDraw, nowPlaying, reset }) => {
+import PropTypes from 'prop-types';
+
+import styles from './header.module.css';
+
+export const Header = ({isWon, isDraw, nowPlaying, reset}) => {
   return (
     <div className={styles.header}>
       {!isWon && !isDraw && (
@@ -13,10 +17,17 @@ export const Header = ({ isWon, isDraw, nowPlaying, reset }) => {
           Winner: <span className={styles.note}>{nowPlaying}</span>
         </p>
       )}
-      {isDraw && <p>It's a draw</p>}
+      {isDraw && <p>It&apos;s a draw</p>}
       <button className={styles.button} onClick={reset}>
         Reset
       </button>
     </div>
   );
+};
+
+Header.propTypes = {
+  isWon: PropTypes.bool,
+  isDraw: PropTypes.bool,
+  nowPlaying: PropTypes.string,
+  reset: PropTypes.func,
 };

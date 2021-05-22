@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { initalSate, possibleWinners } from "../constants";
+import {useEffect, useState} from 'react';
+import {initialSate, possibleWinners} from '../constants';
 
 export const useTicTacToe = () => {
   // state of the game
-  const [state, setState] = useState(initalSate);
+  const [state, setState] = useState(initialSate);
   // track who plays the next move
-  const [nowPlaying, setNowPlaying] = useState("X");
+  const [nowPlaying, setNowPlaying] = useState('X');
   // track if the game isWon
   const [isWon, setIsWon] = useState(false);
   // track the number of moves
@@ -20,8 +20,8 @@ export const useTicTacToe = () => {
   // to reset the board when use clicks on reset
   const reset = () => {
     // reset states
-    setState(initalSate);
-    setNowPlaying("X");
+    setState(initialSate);
+    setNowPlaying('X');
     setIsWon(false);
     setIsDraw(false);
     setCount(0);
@@ -30,10 +30,10 @@ export const useTicTacToe = () => {
 
   // toggle players turn
   const updateNowPlaying = () => {
-    if (nowPlaying === "X") {
-      setNowPlaying("O");
+    if (nowPlaying === 'X') {
+      setNowPlaying('O');
     } else {
-      setNowPlaying("X");
+      setNowPlaying('X');
     }
   };
 
@@ -114,5 +114,5 @@ export const useTicTacToe = () => {
     }
   }, [state]);
 
-  return { state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick };
+  return {state, nowPlaying, isWon, isDraw, winningCells, reset, handleClick};
 };
