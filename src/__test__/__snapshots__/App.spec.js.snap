@@ -35,20 +35,26 @@ exports[`Renders Cell correctly 1`] = `
         className="row"
       >
         <div
+          aria-live="polite"
           className="cell"
           id="c1"
+          role="status"
         >
           
         </div>
         <div
+          aria-live="polite"
           className="cell"
           id="c2"
+          role="status"
         >
           
         </div>
         <div
+          aria-live="polite"
           className="cell"
           id="c3"
+          role="status"
         >
           
         </div>
@@ -57,20 +63,26 @@ exports[`Renders Cell correctly 1`] = `
         className="row"
       >
         <div
+          aria-live="polite"
           className="cell"
           id="c4"
+          role="status"
         >
           
         </div>
         <div
+          aria-live="polite"
           className="cell"
           id="c5"
+          role="status"
         >
           
         </div>
         <div
+          aria-live="polite"
           className="cell"
           id="c6"
+          role="status"
         >
           
         </div>
@@ -79,20 +91,26 @@ exports[`Renders Cell correctly 1`] = `
         className="row"
       >
         <div
+          aria-live="polite"
           className="cell"
           id="c7"
+          role="status"
         >
           
         </div>
         <div
+          aria-live="polite"
           className="cell"
           id="c8"
+          role="status"
         >
           
         </div>
         <div
+          aria-live="polite"
           className="cell"
           id="c9"
+          role="status"
         >
           
         </div>
