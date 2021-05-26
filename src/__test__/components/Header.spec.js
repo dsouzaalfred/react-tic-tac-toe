@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Header } from '../../components/Header';
+import {Header} from '../../components/Header';
 
 it('Renders Cell correctly', () => {
   const tree = renderer.create(<Header />).toJSON();
