@@ -10,7 +10,8 @@ export const Cell = ({id, value, isWinningCell}) => {
     <div
       id={id}
       className={cn(styles.cell, {[styles.winner]: isWinningCell})}
-      // onClick={handleOnClick}
+      aria-live="polite"
+      role="status"
     >
       {value === null ? '' : value}
     </div>
