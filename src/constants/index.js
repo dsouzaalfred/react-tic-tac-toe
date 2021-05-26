@@ -1,4 +1,4 @@
-export const initialSate = {
+export const initialState = {
   c1: {value: null, inWinningCombo: false},
   c2: {value: null, inWinningCombo: false},
   c3: {value: null, inWinningCombo: false},

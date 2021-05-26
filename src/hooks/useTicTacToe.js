@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
-import {initialSate, possibleWinners} from '../constants';
+import {initialState, possibleWinners} from '../constants';
 
 export const useTicTacToe = () => {
   // state of the game
-  const [state, setState] = useState(initialSate);
+  const [state, setState] = useState(initialState);
   // track who plays the next move
   const [nowPlaying, setNowPlaying] = useState('X');
   // track if the game isWon
@@ -18,7 +18,7 @@ export const useTicTacToe = () => {
   // to reset the board when use clicks on reset
   const reset = () => {
     // reset states
-    setState(initialSate);
+    setState(initialState);
     setNowPlaying('X');
     setIsWon(false);
     setIsDraw(false);
