@@ -30,7 +30,7 @@ test('show correct value', () => {
   expect(cell).toHaveClass('cell');
   expect(cell).toHaveTextContent('X');
 });
-// Add class change if winner
+// Add class if winner
 test('Add class if winner', () => {
   const {queryByRole} = render(<Cell id="c3" value="0" isWinningCell={true} />);
 
