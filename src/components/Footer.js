@@ -11,7 +11,7 @@ export const Footer = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Alfred DSouza
+        Alfred D&apos;Souza
       </a>
     </div>
   );
